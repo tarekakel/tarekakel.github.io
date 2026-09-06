@@ -4,6 +4,7 @@ import { content, type Lang } from '@/data/content'
 import { Section } from '@/components/section'
 import { Button, buttonClasses } from '@/components/ui/button'
 import { Tag } from '@/components/ui/tag'
+import { Timeline } from '@/components/timeline'
 import { cn } from '@/lib/utils'
 
 function usePref<T extends string>(key: string, fallback: T): [T, (v: T) => void] {
@@ -192,26 +193,7 @@ export default function App() {
 
         {/* Experience */}
         <Section id="experience" heading={t.experience.heading} className="border-t border-line">
-          <ol className="relative border-l border-line pl-8">
-            {t.experience.items.map((j) => (
-              <li key={j.company + j.period} className="relative pb-10 last:pb-0">
-                <span className="absolute -left-[37px] top-2 h-2.5 w-2.5 rounded-full border-2 border-bg bg-line-strong" aria-hidden />
-                <p className="text-sm text-muted">{j.period}</p>
-                <h3 className="mt-1 text-lg font-semibold tracking-tight">{j.title}</h3>
-                <p className="text-ink-2">
-                  {j.company} — {j.location}
-                </p>
-                <ul className="mt-3 max-w-2xl space-y-2 text-[15px] text-ink-2">
-                  {j.bullets.map((b) => (
-                    <li key={b} className="flex gap-3">
-                      <span className="mt-[11px] h-px w-3 shrink-0 bg-line-strong" aria-hidden />
-                      <span>{b}</span>
-                    </li>
-                  ))}
-                </ul>
-              </li>
-            ))}
-          </ol>
+          <Timeline items={t.experience.items} presentLabel={t.experience.present} />
 
           <div className="mt-14 border-t border-line pt-8">
             <h3 className="text-sm text-muted">{t.education.heading}</h3>

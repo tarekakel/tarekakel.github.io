@@ -1,3 +1,5 @@
+import type { CountryCode } from '@/components/flag'
+
 export type Lang = 'en' | 'de'
 
 export interface Project {
@@ -14,6 +16,7 @@ export interface Job {
   title: string
   company: string
   location: string
+  country: CountryCode
   period: string
   bullets: string[]
 }
@@ -30,7 +33,7 @@ export interface Content {
   facts: { label: string; value: string }[]
   about: { heading: string; paragraphs: string[] }
   projects: { heading: string; intro: string; items: Project[]; viewCode: string; archived: string }
-  experience: { heading: string; items: Job[] }
+  experience: { heading: string; present: string; items: Job[] }
   education: { heading: string; degree: string; school: string; period: string }
   skills: { heading: string; groups: { label: string; items: string }[] }
   certifications: { heading: string; items: string[] }
@@ -158,11 +161,13 @@ export const en: Content = {
   },
   experience: {
     heading: 'Experience',
+    present: 'Current',
     items: [
       {
         title: 'Senior Software Developer',
         company: 'Tatweer MEA',
         location: 'Abu Dhabi, UAE',
+        country: 'AE',
         period: 'Mar 2025 – present',
         bullets: [
           'Lead system design and delivery of government digital solutions in Python, .NET Core and Angular; own the architecture and technical roadmap.',
@@ -176,6 +181,7 @@ export const en: Content = {
         title: 'Senior Full Stack Developer',
         company: 'Alsager National Insurance Company (ASNIC)',
         location: 'Dubai, UAE',
+        country: 'AE',
         period: 'Dec 2023 – Mar 2025',
         bullets: [
           'Developed large-scale insurance systems — underwriting, policy issuance, claims — with Angular 15, .NET Core and Oracle in a microservices architecture.',
@@ -188,6 +194,7 @@ export const en: Content = {
         title: 'Senior Full Stack Developer',
         company: 'Abu Dhabi Ports',
         location: 'Abu Dhabi, UAE',
+        country: 'AE',
         period: 'Jul 2022 – Nov 2023',
         bullets: [
           'Designed logistics web applications (freight and warehouse services) with Angular and .NET Core.',
@@ -199,6 +206,7 @@ export const en: Content = {
         title: 'Full Stack Developer',
         company: 'Technologica',
         location: 'Dubai, UAE',
+        country: 'AE',
         period: 'Oct 2021 – Jul 2022',
         bullets: [
           'Delivered web applications with .NET Core 6 and Angular 13; built background services and integrated MongoDB and Node.js APIs.',
@@ -209,6 +217,7 @@ export const en: Content = {
         title: 'Software Engineer (remote)',
         company: 'SAMD Software Solution',
         location: 'Damascus, Syria',
+        country: 'SY',
         period: 'Feb 2021 – Sep 2021',
         bullets: ['Built Python-based 2D/3D modelling tools with PyQt5 and Panda3D in a cross-functional remote team.'],
       },
@@ -216,6 +225,7 @@ export const en: Content = {
         title: 'Information Analyst',
         company: 'Syriatel Telecom',
         location: 'Damascus, Syria',
+        country: 'SY',
         period: 'Jan 2019 – Feb 2021',
         bullets: [
           'Developed sales and BI systems with ASP.NET, Oracle, Power BI and OBIEE; built ETL pipelines and KPI dashboards for executive reporting.',
@@ -376,11 +386,13 @@ export const de: Content = {
   },
   experience: {
     heading: 'Berufserfahrung',
+    present: 'Aktuell',
     items: [
       {
         title: 'Senior Software Developer',
         company: 'Tatweer MEA',
         location: 'Abu Dhabi, VAE',
+        country: 'AE',
         period: '03/2025 – heute',
         bullets: [
           'Leitung von Systemdesign und Umsetzung digitaler Behördenlösungen in Python, .NET Core und Angular; Verantwortung für Architektur und technische Roadmap.',
@@ -394,6 +406,7 @@ export const de: Content = {
         title: 'Senior Full Stack Developer',
         company: 'Alsager National Insurance Company (ASNIC)',
         location: 'Dubai, VAE',
+        country: 'AE',
         period: '12/2023 – 03/2025',
         bullets: [
           'Entwicklung großer Versicherungssysteme – Underwriting, Policierung, Schadenbearbeitung – mit Angular 15, .NET Core und Oracle in einer Microservice-Architektur.',
@@ -406,6 +419,7 @@ export const de: Content = {
         title: 'Senior Full Stack Developer',
         company: 'Abu Dhabi Ports',
         location: 'Abu Dhabi, VAE',
+        country: 'AE',
         period: '07/2022 – 11/2023',
         bullets: [
           'Entwurf von Logistik-Webanwendungen (Fracht- und Lagerdienste) mit Angular und .NET Core.',
@@ -417,6 +431,7 @@ export const de: Content = {
         title: 'Full Stack Developer',
         company: 'Technologica',
         location: 'Dubai, VAE',
+        country: 'AE',
         period: '10/2021 – 07/2022',
         bullets: [
           'Webanwendungen mit .NET Core 6 und Angular 13; Hintergrunddienste sowie Anbindung von MongoDB und Node.js-APIs.',
@@ -427,6 +442,7 @@ export const de: Content = {
         title: 'Software Engineer (remote)',
         company: 'SAMD Software Solution',
         location: 'Damaskus, Syrien',
+        country: 'SY',
         period: '02/2021 – 09/2021',
         bullets: ['Python-basierte 2D/3D-Modellierungswerkzeuge mit PyQt5 und Panda3D in einem funktionsübergreifenden Remote-Team.'],
       },
@@ -434,6 +450,7 @@ export const de: Content = {
         title: 'Information Analyst',
         company: 'Syriatel Telecom',
         location: 'Damaskus, Syrien',
+        country: 'SY',
         period: '01/2019 – 02/2021',
         bullets: [
           'Vertriebs- und BI-Systeme mit ASP.NET, Oracle, Power BI und OBIEE; ETL-Pipelines und KPI-Dashboards für das Management-Reporting.',
