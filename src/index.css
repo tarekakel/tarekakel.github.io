@@ -1,0 +1,63 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --font-sans: "IBM Plex Sans", ui-sans-serif, system-ui, "Segoe UI", Roboto, sans-serif;
+
+  --color-bg: #f4f6f9;
+  --color-surface: #ffffff;
+  --color-ink: #141a24;
+  --color-ink-2: #3d4756;
+  --color-muted: #6b7484;
+  --color-line: #d5dbe4;
+  --color-line-strong: #9aa5b5;
+  --color-accent: #1b3a6b;
+  --color-accent-ink: #ffffff;
+  --color-accent-soft: #e6edf8;
+  --color-tag: #eef1f5;
+}
+
+.dark {
+  --color-bg: #0e131b;
+  --color-surface: #151c27;
+  --color-ink: #e9edf3;
+  --color-ink-2: #c3cad6;
+  --color-muted: #8f9aad;
+  --color-line: #263142;
+  --color-line-strong: #3c4a60;
+  --color-accent: #8db3f0;
+  --color-accent-ink: #0e131b;
+  --color-accent-soft: #1a2a45;
+  --color-tag: #1d2633;
+}
+
+html {
+  scroll-behavior: smooth;
+  color-scheme: light;
+}
+html.dark { color-scheme: dark; }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { animation: none !important; transition: none !important; }
+}
+
+body {
+  @apply bg-bg text-ink font-sans antialiased;
+  font-feature-settings: "ss01", "cv05";
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+::selection { background: var(--color-accent-soft); }
+
+.hero-in { animation: hero-in 700ms cubic-bezier(.2,.7,.2,1) both; }
+@keyframes hero-in {
+  from { opacity: 0; transform: translateY(10px); }
+  to   { opacity: 1; transform: none; }
+}
